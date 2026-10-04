@@ -1,0 +1,16 @@
+name: herdr-pane-state
+version: "1.0.0"
+description: "Report Hermes Agent lifecycle state (idle/working/blocked), the resume command, and pane release to the Herdr pane Hermes runs in. No-op outside Herdr."
+author: jiangkoumo
+provides_hooks:
+  - pre_llm_call
+  - post_llm_call
+  - on_session_end
+  - pre_tool_call
+  - post_tool_call
+  - pre_approval_request
+  - post_approval_response
+  - agent_loop_stopped
+  - on_session_start
+  - on_session_reset
+  - on_session_finalize
