@@ -27,16 +27,19 @@ dropped: a slow or absent Herdr never touches a turn.
 ## Install
 
 ```bash
-git clone https://github.com/jiangkoumo/hermes-herdr-pane-state ~/Documents/hermes-herdr-pane-state
-ln -s ~/Documents/hermes-herdr-pane-state ~/.hermes/plugins/herdr-pane-state
+hermes plugins install jiangkoumo/hermes-herdr-pane-state
 hermes plugins enable herdr-pane-state
 # one reporting source per pane: retire the integration Herdr installs itself
 hermes plugins disable herdr-agent-state
 hermes plugins doctor herdr-pane-state     # expect: registration passed, 11 hooks
 ```
 
-A symlink keeps one copy on disk, so edits land immediately. A plain directory
-copy works too — it just drifts.
+Hermes clones the plugin into `~/.hermes/plugins/herdr-pane-state` and records
+the pinned revision; `hermes plugins update herdr-pane-state` pulls a newer one.
+
+For hacking on it, clone it yourself and symlink that checkout to
+`~/.hermes/plugins/herdr-pane-state`, so edits land immediately instead of
+drifting from a copy.
 
 ## Launch Hermes so Herdr can see it
 
